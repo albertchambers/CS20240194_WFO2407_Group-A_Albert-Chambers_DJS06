@@ -69,7 +69,7 @@ console.log(
 // Task 4
 console.log(products.reduce((acc, product) => acc + product.product, ''));
 
-//Task 5
+// Task 5
 console.log(
   (() => {
     const pricedProducts = products.filter(product => product.price && !isNaN(product.price));
@@ -82,3 +82,10 @@ console.log(
   })()
 ); // this was a thriller
 
+// Task 6
+console.log(
+  Object.entries(products).reduce((acc, [_, product]) => {
+    acc.push({ name: product.product, cost: product.price });
+    return acc;
+  }, [])
+);
