@@ -70,4 +70,15 @@ console.log(
 console.log(products.reduce((acc, product) => acc + product.product, ''));
 
 //Task 5
+console.log(
+  (() => {
+    const pricedProducts = products.filter(product => product.price && !isNaN(product.price));
+    const prices = pricedProducts.map(product => Number(product.price));
+    const maxPrice = Math.max(...prices);
+    const minPrice = Math.min(...prices);
+    return `
+      Highest: ${pricedProducts.find(p => Number(p.price) === maxPrice).product}.
+      Lowest: ${pricedProducts.find(p => Number(p.price) === minPrice).product}.`;
+  })()
+); // this was a thriller
 
